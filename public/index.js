@@ -1,9 +1,16 @@
 async function main() {
 
-    let response = await fetch('http://localhost:3001/listBooks')
-    let books = await response.json()
+    //Making the Request:
 
-    books.forEach(renderBook)
+    let response = await fetch('http://localhost:3001/listBooks/',{
+
+    });        //http://localhost:3001/listBooks - This is the address of a server-side function we're invoking with our fetch request.
+                                                                        //GET; the method of the fetch request
+//Handling the Response:
+    let books = await response.json()   //We parse the response from JSON to define 'books' (variable type; array -console.log(books)-)
+    console.log(books)
+
+    books.forEach(renderBook)               //Once the array of books is retrieved, we use '.forEach' to add 'cards' for each book to the DOM.
 }
 
 function renderBook(book) {
